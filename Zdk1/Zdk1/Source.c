@@ -13,7 +13,6 @@
 //prezime, apsolutni i relativni broj bodova.
 //Napomena: Svaki redak datoteke sadrži ime i prezime studenta, te broj bodova na kolokviju.
 //relatvan_br_bodova = br_bodova / max_br_bodova * 100
-int broj_studenata(char* ime_file);
 typedef struct 
 {
     char ime[MAX_IME];
@@ -21,13 +20,14 @@ typedef struct
     int bodovi;
 }student;
 
+int broj_studenata(char* ime_file);
 int upis(char* ime_file, int broj_studenata, student *studenti);
 
 int main()
 {
 	char ime_filea[MAX_IME] = { 0 };
 	int br_studenata = 0;
-    student * studenti;
+    student * studenti = NULL;
     float relativan_br_bodova = 0;
 	printf("Upisite ime filea ");
 
@@ -36,8 +36,14 @@ int main()
     printf("%s", ime_filea);
 
 	br_studenata = broj_studenata(ime_filea);
-	printf("Broj studenata u datoteci %s je %d\n", ime_filea, br_studenata);
+	
+    if (br_studenata < 1)
+    
+    printf("Broj studenata u datoteci %s je %d\n", ime_filea, br_studenata);
     studenti = (student*)malloc(sizeof(student) * br_studenata);
+
+    if (!studenti) {
+    }
 
     upis(ime_filea, br_studenata, studenti);
     for (int i = 0; i < br_studenata; i++)
@@ -46,6 +52,7 @@ int main()
 
          printf("IME: %s\t PREZIME: %s\t APSOLUTNI_BODOVI: %d\t RELATIVNI_BODOVI: %.2f\n", studenti[i].ime, studenti[i].prezime, studenti[i].bodovi,relativan_br_bodova);
     }
+    free(studenti);
     return 0;
 
 }
@@ -78,7 +85,6 @@ int upis(char* ime_file, int broj_studenata, student *studenti)
 {
     FILE* file = NULL;
     int count = 0;
-    char buffer[MAX_LINIJA] = { 0 };
 
     file = fopen(ime_file, "r");
 
@@ -90,9 +96,15 @@ int upis(char* ime_file, int broj_studenata, student *studenti)
     while (!feof(file))
     {
         
-            fscanf(file, "%s %s %d", studenti[count].ime, studenti[count].prezime, &studenti[count].bodovi);
+        if (fscanf(file, "%s %s %d", studenti[count].ime, studenti[count].prezime, &studenti[count].bodovi) == 3) 
+        {   
             count++;
-        
+        }
+        else
+        {
+            printf("Fali varijabla");
+            return FILE_ERROR;
+        }
     }
     return 0;
 }
