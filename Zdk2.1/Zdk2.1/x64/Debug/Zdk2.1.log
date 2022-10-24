@@ -1,0 +1,6 @@
+﻿  Source.c
+C:\Users\Tino\Desktop\Strukture-Podataka\Zdk2.1\Zdk2.1\Source.c(30,1): warning C4047: 'initializing': 'char' differs in levels of indirection from 'void *'
+C:\Users\Tino\Desktop\Strukture-Podataka\Zdk2.1\Zdk2.1\Source.c(31,1): warning C4047: 'initializing': 'char' differs in levels of indirection from 'void *'
+C:\Users\Tino\Desktop\Strukture-Podataka\Zdk2.1\Zdk2.1\Source.c(32,1): warning C4047: 'initializing': 'char' differs in levels of indirection from 'void *'
+C:\Users\Tino\Desktop\Strukture-Podataka\Zdk2.1\Zdk2.1\Source.c(125,14): warning C4047: 'return': 'int' differs in levels of indirection from 'void *'
+  Zdk2.1.vcxproj -> C:\Users\Tino\Desktop\Strukture-Podataka\Zdk2.1\x64\Debug\Zdk2.1.exe
