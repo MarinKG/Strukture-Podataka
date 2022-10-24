@@ -58,20 +58,20 @@ int main()
 
 }
 
-int unos(int *god, char ime[], char prezime[])
+int unos(int* god, char ime[], char prezime[])
 {
 	int provjera = 0;
 	printf("Unesite ime osobe: ");
-	provjera=scanf(" %[^\n]s", ime);
+	provjera = scanf(" %[^\n]s", ime);
 
 	if (provjera == 1)
 	{
 		printf("\nUnesite prezime osobe: ");
-		provjera=scanf(" %[^\n]s", prezime);
+		provjera = scanf(" %[^\n]s", prezime);
 		if (provjera == 1)
 		{
 			printf("\nUnesite godinu rodenja osobe: ");
-			provjera=scanf(" %d", god);
+			provjera = scanf(" %d", god);
 			fflush(stdin);
 			if (provjera == 1)
 			{

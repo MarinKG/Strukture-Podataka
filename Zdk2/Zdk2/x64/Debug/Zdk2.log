@@ -1,1 +1,3 @@
-﻿  Zdk2.vcxproj -> C:\Users\Tino\Desktop\Strukture-Podataka\Zdk2\x64\Debug\Zdk2.exe
+﻿  Source.c
+C:\Users\Tino\Desktop\Strukture-Podataka\Zdk2\Zdk2\Source.c(154,14): warning C4047: 'return': 'int' differs in levels of indirection from 'void *'
+  Zdk2.vcxproj -> C:\Users\Tino\Desktop\Strukture-Podataka\Zdk2\x64\Debug\Zdk2.exe
