@@ -1,0 +1,6 @@
+﻿  Source.c
+C:\Users\Tino\Desktop\Strukture-Podataka\Strukture-Podataka-main\Strukture-Podataka-main\ZDK3\Source.c(41,1): warning C4047: 'initializing': 'char' differs in levels of indirection from 'void *'
+C:\Users\Tino\Desktop\Strukture-Podataka\Strukture-Podataka-main\Strukture-Podataka-main\ZDK3\Source.c(42,1): warning C4047: 'initializing': 'char' differs in levels of indirection from 'void *'
+C:\Users\Tino\Desktop\Strukture-Podataka\Strukture-Podataka-main\Strukture-Podataka-main\ZDK3\Source.c(43,1): warning C4047: 'initializing': 'char' differs in levels of indirection from 'void *'
+C:\Users\Tino\Desktop\Strukture-Podataka\Strukture-Podataka-main\Strukture-Podataka-main\ZDK3\Source.c(290): warning C4715: 'unos_ispred': not all control paths return a value
+  ZDK3.vcxproj -> C:\Users\Tino\Desktop\Strukture-Podataka\Strukture-Podataka-main\Strukture-Podataka-main\ZDK3\Debug\ZDK3.exe
