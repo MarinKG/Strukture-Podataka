@@ -32,6 +32,8 @@ int unos_ispred(int god, char* ime, char* prezime, Pozicija P);
 Pozicija trazi_pret(Pozicija P);
 void sortiraj_listu(Pozicija P);
 int ispisi_u_datoteku(Pozicija P);
+int ucitaj_listu(Pozicija P);
+int sortirani_unos(int god, char* ime, char* prezime, Pozicija P);
 
 int main()
 {
@@ -98,7 +100,7 @@ int main()
 			ispisi_u_datoteku(head->next);
 			break;
 		case 'J':
-
+			ucitaj_listu(head);
 			break;
 		case 'X':
 			brisi_sve(head);
@@ -344,16 +346,69 @@ void sortiraj_listu(Pozicija P)
 
 int ispisi_u_datoteku(Pozicija P)
 {
-	printf("\nUnesite ime datoteke u koju zelite ispisati listu\n");
+	printf("\nUnesite ime datoteke u koju zelite ispisati listu:\n");
 	
 	char ime_datoteke[100] = { '\0' };
 	scanf("%s", ime_datoteke);
 	FILE* file=fopen(ime_datoteke, "w");
+	if (file == NULL)
+	{
+		printf("Datoteka %s se nije mogla otvoriti!\r\n", ime_datoteke);
+		return -1;
+	}
 	while (P != NULL)
 	{
 		fprintf(file,"\nIME: %s\tPREZIME: %s\t GODINA_RODENJA: %d\n", P->ime, P->prezime, P->godina);
 		P = P->next;
 	}
 	fclose(file);
+	return 0;
+}
+
+int ucitaj_listu(Pozicija P)
+{
+	int godina = 0;
+	char ime[100] = { '\0' };
+	char prezime[100] = { '\0' };
+	int broj_neupisanih = 0;
+	printf("\nUnesite ime datoteke iz koje zelite ispisati listu:\n");
+
+	char ime_datoteke[100] = { '\0' };
+	scanf("%s", ime_datoteke);
+	FILE* file = fopen(ime_datoteke, "r");
+	if (file == NULL)
+	{
+		printf("Datoteka %s se nije mogla otvoriti!\r\n", ime_datoteke);
+		return -1;
+	}
+	while (!feof(file))
+	{
+
+		if (fscanf(file, "%s %s %d", ime, prezime, &godina) == 3)
+		{
+			sortirani_unos(godina, ime, prezime,P);
+		}
+		else
+		{
+			broj_neupisanih++;
+		}
+	}
+	printf("\nBroj neuspjesno upisanih osoba: %d\n", (broj_neupisanih==0)  ? broj_neupisanih : broj_neupisanih-1);
+	fclose(file);
+	return 0;
+}
+int sortirani_unos(int god, char* ime, char* prezime, Pozicija P)
+{
+	Pozicija q;
+	while (P->next != NULL && strcmp(P->next->prezime, prezime) < 0)
+	{
+		P = P->next;
+	}
+	q= (Pozicija)malloc(sizeof(osoba));
+	q->godina = god;
+	strcpy(q->ime, ime);
+	strcpy(q->prezime, prezime);
+	q->next = P->next;
+	P->next = q;
 	return 0;
 }

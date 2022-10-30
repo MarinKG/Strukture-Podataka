@@ -1,8 +1,22 @@
+Ivo Andric 
+Stipisic 45
+Marin Bojanic 20
 
-IME: q	PREZIME: a	 GODINA_RODENJA: 1
+Karlo Basic 3
+Ivica Bonkovic 56
 
-IME: e	PREZIME: d	 GODINA_RODENJA: 5
+Mario Kljakovic 
+Anton Horvat 39
 
-IME: u	PREZIME: j	 GODINA_RODENJA: 4
+Ana 56
+Josipa Krolo 83
 
-IME: w	PREZIME: s	 GODINA_RODENJA: 2
+Karla Jonjic 99
+Ante Kristic 15
+Mihovil 65
+
+
+Truhelka 73
+Stjepan Kolobaric 35
+Josip Bloketa 93
+
