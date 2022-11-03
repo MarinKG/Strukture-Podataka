@@ -39,11 +39,11 @@ int main()
 {
 	int godina = 0;
 	int provjera = 0;
-	char ime[100] = { NULL };
-	char prezime[100] = { NULL };
-	char trazi_prezime[100] = { NULL };
+	char ime[100] = { '\0' };
+	char prezime[100] = { '\0' };
+	char trazi_prezime[100] = { '\0' };
 	char opcija[100] = { '\0' };
-	osoba* head = NULL;
+	osoba* head;
 	head = (osoba*)malloc(sizeof(osoba));
 	head->next = NULL;
 
@@ -203,11 +203,14 @@ int unos_pocetak(int god, char* ime, char* prezime,  Pozicija P)
 	if (provjera == 3)
 	{
 		q = (Pozicija)malloc(sizeof(osoba));
-		q->godina = god;
-		strcpy(q->ime, ime);
-		strcpy(q->prezime, prezime);
-		q->next = P->next;
-		P->next = q;
+		if (q != NULL)
+		{
+			q->godina = god;
+			strcpy(q->ime, ime);
+			strcpy(q->prezime, prezime);
+			q->next = P->next;
+			P->next = q;
+		}
 	}
 		return 0;
 }
@@ -223,11 +226,14 @@ int unos_kraj(int god, char* ime, char* prezime,  Pozicija P)
 			P = P->next;
 		}
 		q = (Pozicija)malloc(sizeof(osoba));
-		q->godina = god;
-		strcpy(q->ime, ime);
-		strcpy(q->prezime, prezime);
-		P->next = q;
-		q->next = NULL;
+		if (q != NULL)
+		{
+			q->godina = god;
+			strcpy(q->ime, ime);
+			strcpy(q->prezime, prezime);
+			P->next = q;
+			q->next = NULL;
+		}
 	}
 	return 0;
 }
@@ -245,12 +251,15 @@ int unos_nakon(int god, char* ime, char* prezime,  Pozicija P)
 	if (provjera == 3)
 	{
 		q = (Pozicija)malloc(sizeof(osoba));
-		q->godina = god;
-		strcpy(q->ime, ime);
-		strcpy(q->prezime, prezime);
-		q->next = P->next;
-		P->next = q;
-		return 0;
+		if (q != NULL)
+		{
+			q->godina = god;
+			strcpy(q->ime, ime);
+			strcpy(q->prezime, prezime);
+			q->next = P->next;
+			P->next = q;
+			return 0;
+		}
 	}
 	return -1;
 }
@@ -281,13 +290,17 @@ int unos_ispred(int god, char* ime, char* prezime, Pozicija P)
 	if (provjera == 3)
 	{
 		q = (Pozicija)malloc(sizeof(osoba));
-		q->godina = god;
-		strcpy(q->ime, ime);
-		strcpy(q->prezime, prezime);
-		q->next = P->next;
-		P->next = q;
+		if (q != NULL)
+		{
+			q->godina = god;
+			strcpy(q->ime, ime);
+			strcpy(q->prezime, prezime);
+			q->next = P->next;
+			P->next = q;
+		}
 		return 0;
 	}
+	return -1;
 }
 
 Pozicija trazi_pret(Pozicija P)
@@ -346,27 +359,32 @@ void sortiraj_listu(Pozicija P)
 
 int ispisi_u_datoteku(Pozicija P)
 {
+	int provjera = 0;
 	printf("\nUnesite ime datoteke u koju zelite ispisati listu:\n");
 	
 	char ime_datoteke[100] = { '\0' };
-	scanf("%s", ime_datoteke);
-	FILE* file=fopen(ime_datoteke, "w");
-	if (file == NULL)
+	provjera=scanf("%s", ime_datoteke);
+	if (provjera == 1)
 	{
-		printf("Datoteka %s se nije mogla otvoriti!\r\n", ime_datoteke);
-		return -1;
+		FILE* file = fopen(ime_datoteke, "w");
+		if (file == NULL)
+		{
+			printf("Datoteka %s se nije mogla otvoriti!\r\n", ime_datoteke);
+			return -1;
+		}
+		while (P != NULL)
+		{
+			fprintf(file, "\nIME: %s\tPREZIME: %s\t GODINA_RODENJA: %d\n", P->ime, P->prezime, P->godina);
+			P = P->next;
+		}
+		fclose(file);
 	}
-	while (P != NULL)
-	{
-		fprintf(file,"\nIME: %s\tPREZIME: %s\t GODINA_RODENJA: %d\n", P->ime, P->prezime, P->godina);
-		P = P->next;
-	}
-	fclose(file);
 	return 0;
 }
 
 int ucitaj_listu(Pozicija P)
 {
+	int provjera = 0;
 	int godina = 0;
 	char ime[100] = { '\0' };
 	char prezime[100] = { '\0' };
@@ -374,27 +392,30 @@ int ucitaj_listu(Pozicija P)
 	printf("\nUnesite ime datoteke iz koje zelite ispisati listu:\n");
 
 	char ime_datoteke[100] = { '\0' };
-	scanf("%s", ime_datoteke);
-	FILE* file = fopen(ime_datoteke, "r");
-	if (file == NULL)
+	provjera=scanf("%s", ime_datoteke);
+	if (provjera == 1)
 	{
-		printf("Datoteka %s se nije mogla otvoriti!\r\n", ime_datoteke);
-		return -1;
-	}
-	while (!feof(file))
-	{
+		FILE* file = fopen(ime_datoteke, "r");
+		if (file == NULL)
+		{
+			printf("Datoteka %s se nije mogla otvoriti!\r\n", ime_datoteke);
+			return -1;
+		}
+		while (!feof(file))
+		{
 
-		if (fscanf(file, "%s %s %d", ime, prezime, &godina) == 3)
-		{
-			sortirani_unos(godina, ime, prezime,P);
+			if (fscanf(file, "%s %s %d", ime, prezime, &godina) == 3)
+			{
+				sortirani_unos(godina, ime, prezime, P);
+			}
+			else
+			{
+				broj_neupisanih++;
+			}
 		}
-		else
-		{
-			broj_neupisanih++;
-		}
+		printf("\nBroj neuspjesno upisanih osoba: %d\n", (broj_neupisanih == 0) ? broj_neupisanih : broj_neupisanih - 1);
+		fclose(file);
 	}
-	printf("\nBroj neuspjesno upisanih osoba: %d\n", (broj_neupisanih==0)  ? broj_neupisanih : broj_neupisanih-1);
-	fclose(file);
 	return 0;
 }
 int sortirani_unos(int god, char* ime, char* prezime, Pozicija P)
@@ -405,10 +426,13 @@ int sortirani_unos(int god, char* ime, char* prezime, Pozicija P)
 		P = P->next;
 	}
 	q= (Pozicija)malloc(sizeof(osoba));
-	q->godina = god;
-	strcpy(q->ime, ime);
-	strcpy(q->prezime, prezime);
-	q->next = P->next;
-	P->next = q;
+	if (q != NULL)
+	{
+		q->godina = god;
+		strcpy(q->ime, ime);
+		strcpy(q->prezime, prezime);
+		q->next = P->next;
+		P->next = q;
+	}
 	return 0;
 }
