@@ -1,0 +1,6 @@
+﻿  Source.c
+C:\Users\Tino\Desktop\Strukture-Podataka\ZDK4\ZDK4\Source.c(261,3): warning C4033: 'zbroji' must return a value
+C:\Users\Tino\Desktop\Strukture-Podataka\ZDK4\ZDK4\Source.c(278,2): warning C4033: 'mnozi' must return a value
+C:\Users\Tino\Desktop\Strukture-Podataka\ZDK4\ZDK4\Source.c(263): warning C4716: 'zbroji': must return a value
+C:\Users\Tino\Desktop\Strukture-Podataka\ZDK4\ZDK4\Source.c(279): warning C4716: 'mnozi': must return a value
+  ZDK4.vcxproj -> C:\Users\Tino\Desktop\Strukture-Podataka\ZDK4\Debug\ZDK4.exe
