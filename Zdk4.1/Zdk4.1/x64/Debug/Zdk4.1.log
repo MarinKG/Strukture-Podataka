@@ -1,0 +1,4 @@
+﻿  Source.c
+C:\Users\Tino\Desktop\Strukture-Podataka\Zdk4.1\Zdk4.1\Source.c(52,38): warning C4047: 'function': 'Pozicija' differs in levels of indirection from 'Pozicija *'
+C:\Users\Tino\Desktop\Strukture-Podataka\Zdk4.1\Zdk4.1\Source.c(52,15): warning C4024: 'ispisi_listu': different types for formal and actual parameter 1
+  Zdk4.1.vcxproj -> C:\Users\Tino\Desktop\Strukture-Podataka\Zdk4.1\x64\Debug\Zdk4.1.exe
