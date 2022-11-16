@@ -1,0 +1,18 @@
+﻿  Source.c
+C:\Users\Tino\Desktop\Strukture-Podataka\Zdk5\Zdk5\Source.c(78,11): warning C4244: 'function': conversion from 'float' to 'int', possible loss of data
+C:\Users\Tino\Desktop\Strukture-Podataka\Zdk5\Zdk5\Source.c(111,20): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\Tino\Desktop\Strukture-Podataka\Zdk5\Zdk5\Source.c(154,13): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\Tino\Desktop\Strukture-Podataka\Zdk5\Zdk5\Source.c(182,32): warning C4244: 'function': conversion from 'float' to 'int', possible loss of data
+C:\Users\Tino\Desktop\Strukture-Podataka\Zdk5\Zdk5\Source.c(183,36): warning C4244: 'function': conversion from 'float' to 'int', possible loss of data
+C:\Users\Tino\Desktop\Strukture-Podataka\Zdk5\Zdk5\Source.c(189,7): warning C4244: 'function': conversion from 'float' to 'int', possible loss of data
+C:\Users\Tino\Desktop\Strukture-Podataka\Zdk5\Zdk5\Source.c(202,33): warning C4244: 'function': conversion from 'float' to 'int', possible loss of data
+C:\Users\Tino\Desktop\Strukture-Podataka\Zdk5\Zdk5\Source.c(203,37): warning C4244: 'function': conversion from 'float' to 'int', possible loss of data
+C:\Users\Tino\Desktop\Strukture-Podataka\Zdk5\Zdk5\Source.c(214,7): warning C4244: 'function': conversion from 'float' to 'int', possible loss of data
+C:\Users\Tino\Desktop\Strukture-Podataka\Zdk5\Zdk5\Source.c(227,33): warning C4244: 'function': conversion from 'float' to 'int', possible loss of data
+C:\Users\Tino\Desktop\Strukture-Podataka\Zdk5\Zdk5\Source.c(228,37): warning C4244: 'function': conversion from 'float' to 'int', possible loss of data
+C:\Users\Tino\Desktop\Strukture-Podataka\Zdk5\Zdk5\Source.c(234,7): warning C4244: 'function': conversion from 'float' to 'int', possible loss of data
+C:\Users\Tino\Desktop\Strukture-Podataka\Zdk5\Zdk5\Source.c(247,33): warning C4244: 'function': conversion from 'float' to 'int', possible loss of data
+C:\Users\Tino\Desktop\Strukture-Podataka\Zdk5\Zdk5\Source.c(248,37): warning C4244: 'function': conversion from 'float' to 'int', possible loss of data
+C:\Users\Tino\Desktop\Strukture-Podataka\Zdk5\Zdk5\Source.c(254,7): warning C4244: 'function': conversion from 'float' to 'int', possible loss of data
+C:\Users\Tino\Desktop\Strukture-Podataka\Zdk5\Zdk5\Source.c(163): warning C4715: 'unos': not all control paths return a value
+  Zdk5.vcxproj -> C:\Users\Tino\Desktop\Strukture-Podataka\Zdk5\x64\Debug\Zdk5.exe
