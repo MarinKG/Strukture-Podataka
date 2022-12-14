@@ -30,6 +30,8 @@ int unesi_podatke(Pozicija P);
 int ispisi_direktorij(Pozicija P);
 Pozicija ulazi(Pozicija P, Poz q);
 Pozicija vrati(Poz q);
+int obrisi_zadnjeg(Poz q);
+int brisi_stog(Poz q);
 
 int main()
 {
@@ -44,7 +46,7 @@ int main()
 	current = Root;
 	strcpy(Root->naziv, "C:");
 	while (opcija != 5) {
-
+		printf("Trenutacni direktorij: %s", current->naziv);
 		printf("\nUnesite broj za:\n"
 			"1-napraviti novi direktorij\n"//imamo
 			"2-ulazi u direktorij\n"//
@@ -54,16 +56,22 @@ int main()
 		scanf(" %d", &opcija);
 		switch (opcija) {
 		case 1:
-			printf("\n %s", current->naziv);
 			unesi_podatke(current);
 			break;
 		case 2:
 			current=ulazi(current, head);
 			break;
 		case 3:
-			
-				current=vrati(head);
+			if (strcmp(current->naziv, Root->naziv) == 0)
+			{
+				printf("\nPrethodni direktorij ne postoji");
 
+			}
+			else {
+
+				current = vrati(head);
+				obrisi_zadnjeg(head);
+			}
 			break;
 		case 4:
 			ispisi_direktorij(current);
@@ -76,7 +84,7 @@ int main()
 		}
 	}
 	brisi_sve(Root);
-
+	brisi_stog(head);
 
 	return 0;
 }
@@ -182,4 +190,31 @@ Pozicija vrati(Poz q)
 	}
 
 	return P->direktorij;
+}
+
+int obrisi_zadnjeg(Poz q)
+{
+	Poz tmp = q, zadnji=NULL;
+	while (tmp->next->next != NULL)
+	{
+		tmp = tmp->next;
+	}
+	zadnji = tmp->next;
+	tmp->next = NULL;
+	free(zadnji);
+	return 0;
+}
+
+int brisi_stog(Poz q)
+{
+	while (q->next != NULL)
+	{
+		Poz prev = NULL, temp = NULL;
+		prev = q;
+		temp = prev->next;
+		prev->next = temp->next;
+		free(temp);
+	}
+	free(q);
+	return 0;
 }
