@@ -39,48 +39,56 @@ int main()
 	Poz head = NULL;
 	Pozicija Root = NULL, current=NULL;
 	Root = (Pozicija)malloc(sizeof(stablo));//dodat provjeru
+	head = (Poz)malloc(sizeof(stog));
+	
+	if (Root == NULL || head == NULL)
+	{
+		printf("Greska pri alokaciji memorije");
+		return -1;
+	}
 	Root->sibling = NULL;
 	Root->child = NULL;
-	head = (Poz)malloc(sizeof(stog));
 	head->next = NULL;
 	current = Root;
 	strcpy(Root->naziv, "C:");
 	while (opcija != 5) {
 		printf("Trenutacni direktorij: %s", current->naziv);
 		printf("\nUnesite broj za:\n"
-			"1-napraviti novi direktorij\n"//imamo
-			"2-ulazi u direktorij\n"//
-			"3-vraca se u prethodni direktorij\n"//
-			"4-ispisuje sve datoteke u direktoriju\n"//imamo
-			"5-izlazi iz programa\n");//imamo
-		scanf(" %d", &opcija);
-		switch (opcija) {
-		case 1:
-			unesi_podatke(current);
-			break;
-		case 2:
-			current=ulazi(current, head);
-			break;
-		case 3:
-			if (strcmp(current->naziv, Root->naziv) == 0)
-			{
-				printf("\nPrethodni direktorij ne postoji");
+			"1-napraviti novi direktorij\n"
+			"2-ulazi u direktorij\n"
+			"3-vraca se u prethodni direktorij\n"
+			"4-ispisuje sve datoteke u direktoriju\n"
+			"5-izlazi iz programa\n");
+		if (scanf(" %d", &opcija) == 1)
+		{
+			switch (opcija) {
+			case 1:
+				unesi_podatke(current);
+				break;
+			case 2:
+				current = ulazi(current, head);
+				break;
+			case 3:
+				if (strcmp(current->naziv, Root->naziv) == 0)
+				{
+					printf("\nPrethodni direktorij ne postoji");
 
-			}
-			else {
+				}
+				else {
 
-				current = vrati(head);
-				obrisi_zadnjeg(head);
+					current = vrati(head);
+					obrisi_zadnjeg(head);
+				}
+				break;
+			case 4:
+				ispisi_direktorij(current);
+				break;
+			case 5:
+				break;
+			default:
+				printf("Krivo unesen broj");
+				break;
 			}
-			break;
-		case 4:
-			ispisi_direktorij(current);
-			break;
-		case 5:
-			break;
-		default:
-			printf("Krivo unesen broj");
-			break;
 		}
 	}
 	brisi_sve(Root);
@@ -121,20 +129,30 @@ int unesi_podatke(Pozicija P)
 	Pozicija q=NULL;
 	char naziv[MAX_LINE];
 	printf("\nUnesite ime direktorija: ");
-	scanf(" %s", naziv);
+	if (scanf(" %s", naziv) == 1) {
 
-	q = (Pozicija)malloc(sizeof(stablo));//dodat provjeru
-	q->sibling = NULL;
-	q->child = NULL;
-	strcpy(q->naziv, naziv);
-	if (r->child == NULL)
-	{
-		r->child = q;
+		q = (Pozicija)malloc(sizeof(stablo));
+		if (q == NULL)
+		{
+			printf("greska pri alokaciji memorije");
+			return -1;
+		}
+		q->sibling = NULL;
+		q->child = NULL;
+		strcpy(q->naziv, naziv);
+		if (r->child == NULL)
+		{
+			r->child = q;
+			return 0;
+		}
+		r->child = sortirani_unos(r->child, q);
+
 		return 0;
 	}
-	r->child=sortirani_unos(r->child, q);
-
-	return 0;
+	else
+	{
+		return -1;
+	}
 }
 
 int ispisi_direktorij(Pozicija P)
@@ -151,11 +169,16 @@ int ispisi_direktorij(Pozicija P)
 
 Pozicija ulazi(Pozicija P, Poz q)
 {
-	Poz r=NULL;
+	Pozicija pocetak = P;
+	Poz r=NULL,head=q;
 	r = (Poz)malloc(sizeof(stog));
+	if (r == NULL)
+	{
+		printf("greska pri alokaciji memorije");
+		return NULL;
+	}
 	r->direktorij = P;
 	r->next = NULL;
-	printf(" %s", r->direktorij->naziv);
 	char naziv[MAX_LINE] = { '\0' };
 	while (q->next != NULL)
 	{
@@ -163,20 +186,26 @@ Pozicija ulazi(Pozicija P, Poz q)
 	}
 	q->next = r;
 
-	printf("\nUnesite naziv direktorija: ");
-	scanf(" %s", naziv);
-	P = P->child;
-	while (P != NULL && strcmp(P->naziv, naziv) != 0)
+	printf("\nUnesite naziv direktorija u kojeg zelite uci: ");
+	if (scanf(" %s", naziv) == 1)
 	{
-		P = P->sibling;
-	}
-	if (P == NULL)
-	{
-		printf("\ndirektorij ne postoji");
-	}
+		P = P->child;
+		while (P != NULL && strcmp(P->naziv, naziv) != 0)
+		{
+			P = P->sibling;
+		}
+		if (P == NULL)
+		{
+			printf("\ndirektorij ne postoji");
+			obrisi_zadnjeg(head);
+			return pocetak;
+		}
 
-
-	return P;
+		return P;
+	}
+	else {
+		return NULL;
+	}
 }
 
 
