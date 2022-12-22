@@ -47,43 +47,51 @@ int main()
 			"\nF- izbrisi clan"
 			"\nG- nadi clan"
 			"\nX- izadi iz programa\n");
-		scanf(" %c", &opcija);
-		switch (toupper(opcija))
+		provjera = scanf(" %c", &opcija);
+		if(provjera==1)
 		{
-		case 'A':
-			printf("\nUnesi vrijednost clana:\n");
-			scanf(" %d", &element);
-			Root = insert(element, Root);
-			break;
-		case 'B':
-			inorder(Root);
-			break;
-		case 'C':
-			preorder(Root);
-			break;
-		case 'D':
-			postorder(Root);
-			break;
-		case 'E':
-			level_order(Root);
-			break;
-		case 'F':
-			printf("\nUnesite vrijednost elementa kojeg zelite obrisati:\n");
-			scanf(" %d", &element);
-			delete(element, Root);
-			break;
-		case 'G':
-			printf("\nUnesite vrijednost elementa kojeg zelite naci:\n");
-			scanf(" %d", &element);
-			nadi = find(element, Root);
-			if (nadi != NULL)
-				printf("\nElement s vrijednoscu %d se nalazi na memorijskoj lokaciji %p\n", element, nadi);
-			else
-				printf("\nElement s vrijednoscu %d ne postoji", element);
-
-			break;
-		case 'X':
-			break;
+			switch (toupper(opcija))
+			{
+			case 'A':
+				printf("\nUnesi vrijednost clana:\n");
+				provjera=scanf(" %d", &element);
+				if (provjera == 1) {
+					Root = insert(element, Root);
+				}
+				break;
+			case 'B':
+				inorder(Root);
+				break;
+			case 'C':
+				preorder(Root);
+				break;
+			case 'D':
+				postorder(Root);
+				break;
+			case 'E':
+				level_order(Root);
+				break;
+			case 'F':
+				printf("\nUnesite vrijednost elementa kojeg zelite obrisati:\n");
+				provjera=scanf(" %d", &element);
+				if (provjera == 1) {
+					delete(element, Root);
+				}
+				break;
+			case 'G':
+				printf("\nUnesite vrijednost elementa kojeg zelite naci:\n");
+				provjera=scanf(" %d", &element);
+				if (provjera == 1) {
+					nadi = find(element, Root);
+					if (nadi != NULL)
+						printf("\nElement s vrijednoscu %d se nalazi na memorijskoj lokaciji %p\n", element, nadi);
+					else
+						printf("\nElement s vrijednoscu %d ne postoji", element);
+				}
+				break;
+			case 'X':
+				break;
+			}
 		}
 
 	}
