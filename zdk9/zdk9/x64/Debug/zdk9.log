@@ -1,0 +1,4 @@
+﻿  Source.c
+C:\Users\Tino\Desktop\Strukture-Podataka\zdk9\zdk9\Source.c(304): warning C4715: 'delete_all': not all control paths return a value
+C:\Users\Tino\Desktop\Strukture-Podataka\zdk9\zdk9\Source.c(291): warning C4716: 'delete_stack': must return a value
+  zdk9.vcxproj -> C:\Users\Tino\Desktop\Strukture-Podataka\zdk9\x64\Debug\zdk9.exe
