@@ -1,0 +1,3 @@
+﻿  Source.c
+C:\Users\Tino\Desktop\Strukture-Podataka\zdk10-b\zdk10-b\Source.c(271): warning C4715: 'delete_all': not all control paths return a value
+  zdk10-b.vcxproj -> C:\Users\Tino\Desktop\Strukture-Podataka\zdk10-b\x64\Debug\zdk10-b.exe

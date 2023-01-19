@@ -1,0 +1,10 @@
+Split 150000
+
+Zagreb 1000000
+Zadar 50000
+
+
+Sibenik 45000
+
+Dubrovnik 20000
+Pula 50000

@@ -1,0 +1,9 @@
+Varsava 1000000
+
+Krakow 400000
+
+
+
+
+Katowice 45000
+Wroclaw 30000

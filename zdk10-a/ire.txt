@@ -1,0 +1,4 @@
+Dublin 2000000
+Galway 5000
+
+Waterford 400000

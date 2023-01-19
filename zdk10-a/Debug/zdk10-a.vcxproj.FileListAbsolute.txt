@@ -1,0 +1,3 @@
+C:\Users\student\source\repos\qqq\zdk10-a\Debug\zdk10-a.exe
+C:\Users\student\source\repos\qqq\zdk10-a\Debug\zdk10-a.pdb
+C:\Users\Tino\Desktop\Strukture-Podataka\zdk10-a\Debug\zdk10-a.exe
