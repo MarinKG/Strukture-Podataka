@@ -1,0 +1,3 @@
+﻿  Source.c
+C:\Users\Tino\Desktop\SP-test\2014-4\2014-4\Source.c(118): warning C4715: 'nadiMax': not all control paths return a value
+  2014-4.vcxproj -> C:\Users\Tino\Desktop\SP-test\2014-4\x64\Debug\2014-4.exe

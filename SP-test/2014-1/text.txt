@@ -1,0 +1,1 @@
+Napisati program koji čita iz datoteke dio teksta

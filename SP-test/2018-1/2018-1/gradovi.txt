@@ -1,0 +1,1 @@
+100 split 500 berlin 300 london 100 zadar 100 osijek 620 zurich 620 bern 500 munchen 300 york

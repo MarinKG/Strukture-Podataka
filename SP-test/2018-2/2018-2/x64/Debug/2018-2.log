@@ -1,0 +1,4 @@
+﻿  Source.c
+C:\Users\Tino\Desktop\SP-test\2018-2\2018-2\Source.c(57,13): warning C4047: 'return': 'Tree' differs in levels of indirection from 'int'
+C:\Users\Tino\Desktop\SP-test\2018-2\2018-2\Source.c(65,13): warning C4047: 'return': 'Tree' differs in levels of indirection from 'int'
+  2018-2.vcxproj -> C:\Users\Tino\Desktop\SP-test\2018-2\x64\Debug\2018-2.exe
